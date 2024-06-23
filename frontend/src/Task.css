@@ -1,0 +1,30 @@
+.task-card {
+    margin: 20px 0;
+    border-radius: 15px;
+}
+
+.start-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.start-button:hover {
+    background-color: #0056b3;
+}
+
+.sub-task {
+    background-color: lightgrey;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.sub-task.completed {
+    background-color: #d3d3d3;
+}
