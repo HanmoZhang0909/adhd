@@ -17,7 +17,7 @@ app.config['UPLOADED_FILES_DEST'] = 'uploads'
 configure_uploads(app, files)
 
 # 设置OpenAI API密钥
-openai.api_key = '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'
+openai.api_key = ''
 
 class Predict(Resource):
     def post(self):

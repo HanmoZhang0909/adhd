@@ -49,3 +49,7 @@
   background-color: #e0f7fa;
   transform: scale(1.05);
 }
+
+* {
+  font-family: 'Noto Sans', sans-serif !important; /* 强制使用全局字体 */
+}

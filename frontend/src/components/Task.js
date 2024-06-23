@@ -1,3 +1,4 @@
+// Task.js
 import React from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 import '../Task.css'; // Import Task CSS file
@@ -6,7 +7,6 @@ import '../animations.css'; // Import animations CSS file
 const Task = ({ task, onStart, onComplete, backgroundColor }) => {
     const taskStyle = {
         backgroundColor: backgroundColor || 'orange',
-        borderRadius: '15px',
         padding: '20px',
     };
 
@@ -14,6 +14,7 @@ const Task = ({ task, onStart, onComplete, backgroundColor }) => {
         display: 'flex',
         width: '100%',
         overflow: 'hidden',
+        justifyContent: 'space-between', // 平均分布子任务
         marginTop: '20px',
     };
 
@@ -33,7 +34,7 @@ const Task = ({ task, onStart, onComplete, backgroundColor }) => {
     };
 
     return (
-        <Card style={taskStyle} className="task-card">
+        <Card style={taskStyle} className="task-card noto-sans">
             <CardContent>
                 <Typography variant="h6">
                     {task.title}
@@ -46,14 +47,11 @@ const Task = ({ task, onStart, onComplete, backgroundColor }) => {
                         <Box
                             key={index}
                             width={`${subTask.time_seconds * scaleFactor}px`}
-                            margin="0" // 移除左右间距
+                            margin="0 1px" // 增加左右间距
                             padding="10px" // 增加内边距
                             className={`sub-task hvr-sweep-to-right ${subTask.completed ? 'completed' : 'pending'}`} // Add the animation class here
                             onClick={() => handleSubTaskClick(index)}
-                            style={{ 
-                                borderRight: index < task.sub_tasks.length - 1 ? '2px solid white' : 'none', // 添加白色分隔线，最后一个子任务没有分隔线
-                                backgroundColor: subTask.completed ? 'lightgreen' : 'initial' // 完成后改变背景颜色
-                            }}
+                            style={{ borderRadius: '0px' }} // Ensure the border-radius is applied here as well
                         >
                             <Typography variant="body2" style={{ marginBottom: '5px' }}>
                                 {subTask.task_description}

@@ -1,9 +1,11 @@
+// App.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import Task from '../components/Task';
+import Task from './Task';
 import { useDropzone } from 'react-dropzone';
 import '../animations.css'; // Import the animations CSS file
+import '../index.css'; // Import global CSS file
 
 function App() {
     const [input, setInput] = useState('');
@@ -54,9 +56,9 @@ function App() {
         setTasks(updatedTasks);
     };
 
-    const handleCompleteTask = (taskId) => {
+    const handleCompleteTask = (id) => {
         const updatedTasks = tasks.map(task => {
-            if (task.id === taskId) {
+            if (task.id === id) {
                 task.complete_time = new Date();
                 task.complete = true;
                 const startTime = task.start_time;
@@ -75,9 +77,9 @@ function App() {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     return (
-        <Container>
+        <Container className="noto-sans">
             <Typography variant="h4" gutterBottom>
-                AI Prediction App
+                aI Present
             </Typography>
             <TextField
                 label="Task Title"
